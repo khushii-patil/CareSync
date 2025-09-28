@@ -108,7 +108,11 @@ export default function App() {
                 className="min-h-screen bg-background"
               >
                 <Navigation onLogin={handleLogin} />
+<<<<<<< HEAD
                 <HeroSection />
+=======
+                <HeroSection onLogin={handleLogin} />
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                 <ErrorBoundary fallback={<LoadingSpinner message="Loading content..." />}>
                   <Suspense fallback={<LoadingSpinner message="Loading content..." />}>
                     <AboutSection />

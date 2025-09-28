@@ -1,7 +1,49 @@
+<<<<<<< HEAD
 import { Button } from "./ui/button";
 import { ArrowRight, Heart, Shield, Zap } from "lucide-react";
 
 export function HeroSection() {
+=======
+import { useState } from "react";
+import herbalMedicineImage from 'figma:asset/d50a9fd2c8e5b8051eab021a7adf972a0324f5a0.png';
+import { Button } from "./ui/button";
+import { ArrowRight, Heart, Shield, Zap } from "lucide-react";
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { LoginModal } from "./LoginModal";
+
+interface HeroSectionProps {
+  onLogin?: (email: string, type: "doctor" | "patient") => void;
+}
+
+export function HeroSection({ onLogin }: HeroSectionProps) {
+  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
+
+  const handleGetStarted = () => {
+    console.log("Get Started button clicked!");
+    setIsLoginModalOpen(true);
+  };
+
+  const handleLearnMore = () => {
+    console.log("Learn More button clicked!");
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      console.log("Features section found, scrolling...");
+      featuresSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    } else {
+      console.log("Features section not found!");
+    }
+  };
+
+  const handleLoginSubmit = (email: string, type: "doctor" | "patient") => {
+    if (onLogin) {
+      onLogin(email, type);
+    }
+    setIsLoginModalOpen(false);
+  };
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   return (
     <section className="relative min-h-screen flex items-center justify-center bg-background pt-16">
       {/* Background Pattern */}
@@ -28,18 +70,42 @@ export function HeroSection() {
             </p>
           </div>
 
+<<<<<<< HEAD
           <div className="flex flex-col sm:flex-row gap-4">
             <Button 
               size="lg" 
               className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg"
+=======
+          <div className="flex flex-col sm:flex-row gap-4 relative z-10">
+            <Button 
+              size="lg" 
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleGetStarted();
+              }}
+              className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg cursor-pointer relative z-10 pointer-events-auto"
+              style={{ pointerEvents: 'auto' }}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
             >
               Get Started Today
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button 
               size="lg" 
+<<<<<<< HEAD
               variant="outline" 
               className="border-border text-foreground hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg"
+=======
+              variant="outline"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleLearnMore();
+              }}
+              className="border-border text-foreground hover:bg-accent hover:text-accent-foreground px-8 py-6 text-lg cursor-pointer relative z-10 pointer-events-auto"
+              style={{ pointerEvents: 'auto' }}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
             >
               Learn More About CareSync
             </Button>
@@ -77,16 +143,38 @@ export function HeroSection() {
           </div>
         </div>
 
+<<<<<<< HEAD
         {/* Right Content - Image Space */}
         <div className="relative">
           <div className="relative z-10">
             <div className="w-full h-[500px] bg-muted/30 rounded-[13px] shadow-2xl border border-border/20"></div>
+=======
+        {/* Right Content - Hero Image */}
+        <div className="relative">
+          <div className="relative z-10">
+            <ImageWithFallback
+              src={herbalMedicineImage}
+              alt="Traditional herbal medicine with dried herbs, flowers, and therapeutic tea representing Ayurveda and holistic healthcare"
+              className="w-full h-[500px] object-cover rounded-[13px] shadow-2xl"
+            />
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
           </div>
           {/* Decorative Elements */}
           <div className="absolute -top-4 -right-4 w-full h-full bg-gradient-to-br from-primary/20 to-accent/20 rounded-2xl -z-10"></div>
           <div className="absolute -bottom-4 -left-4 w-full h-full bg-gradient-to-tr from-muted/20 to-secondary/40 rounded-2xl -z-20"></div>
         </div>
       </div>
+<<<<<<< HEAD
+=======
+
+      {/* Login Modal */}
+      <LoginModal
+        isOpen={isLoginModalOpen}
+        onClose={() => setIsLoginModalOpen(false)}
+        loginType={null}
+        onLogin={handleLoginSubmit}
+      />
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
     </section>
   );
 }

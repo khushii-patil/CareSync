@@ -2,6 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+<<<<<<< HEAD
+=======
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 import { Search, Code, ArrowRight } from "lucide-react";
 import { useState } from "react";
 
@@ -126,7 +130,15 @@ export function DemoSection() {
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-green-500 rounded-full"></div>
                 </div>
+<<<<<<< HEAD
                 <div className="w-full h-[300px] bg-muted/30 rounded-lg border border-border/20"></div>
+=======
+                <ImageWithFallback
+                  src="https://images.unsplash.com/photo-1748801583998-c693323e6305?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb21wdXRlciUyMG1vY2t1cCUyMG1vZGVybnxlbnwxfHx8fDE3NTgzNDkzNjJ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+                  alt="EMR Interface on laptop showing dual coding"
+                  className="w-full h-[300px] object-cover rounded-lg"
+                />
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
               </div>
             </div>
             <div className="h-6 bg-gray-300 rounded-b-xl"></div>

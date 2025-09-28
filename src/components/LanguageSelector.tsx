@@ -69,7 +69,11 @@ export function LanguageSelector() {
     <>
       {/* Floating Language Button */}
       <motion.div 
+<<<<<<< HEAD
         className="fixed bottom-6 left-6 z-50"
+=======
+        className="fixed bottom-6 left-6 z-[90]"
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1, type: "spring", stiffness: 200 }}
@@ -106,7 +110,11 @@ export function LanguageSelector() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
+<<<<<<< HEAD
             className="fixed inset-0 z-40 flex items-center justify-center p-4"
+=======
+            className="fixed inset-0 z-[95] flex items-center justify-center p-4"
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

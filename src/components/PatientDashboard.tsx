@@ -15,10 +15,20 @@ import {
   AlertTriangle,
   Clock,
   Heart,
+<<<<<<< HEAD
   User
 } from "lucide-react";
 import { User as UserType } from "../App";
 import { DiseaseDetail } from "./DiseaseDetail";
+=======
+  User,
+  Download
+} from "lucide-react";
+import { User as UserType } from "../App";
+import { DiseaseDetail } from "./DiseaseDetail";
+import { ThemeToggle } from "./ThemeToggle";
+import { toast } from "sonner@2.0.3";
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 
 interface Disease {
   id: string;
@@ -152,6 +162,41 @@ export function PatientDashboard({ user, onLogout }: PatientDashboardProps) {
     }
   };
 
+<<<<<<< HEAD
+=======
+  const handleDownloadMedicalReport = () => {
+    const reportData = {
+      patient: {
+        name: user.firstName,
+        email: user.email
+      },
+      medicalHistory: filteredDiseases,
+      generatedDate: new Date().toISOString(),
+      summary: {
+        totalConditions: filteredDiseases.length,
+        activeConditions: filteredDiseases.filter(d => d.status === "active").length,
+        chronicConditions: filteredDiseases.filter(d => d.status === "chronic").length,
+        resolvedConditions: filteredDiseases.filter(d => d.status === "resolved").length
+      },
+      namasteCompliance: true,
+      fhirCompliant: true
+    };
+
+    const blob = new Blob([JSON.stringify(reportData, null, 2)], {
+      type: 'application/json'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `medical-report-${user.firstName}-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Medical report downloaded successfully!");
+  };
+
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   if (selectedDisease) {
     return (
       <AnimatePresence mode="wait">
@@ -182,7 +227,11 @@ export function PatientDashboard({ user, onLogout }: PatientDashboardProps) {
       {/* Header */}
       <motion.header 
         variants={itemVariants}
+<<<<<<< HEAD
         className="bg-background/80 backdrop-blur-sm border-b border-border sticky top-0 z-40"
+=======
+        className="fixed top-0 left-0 right-0 bg-background/95 backdrop-blur-sm border-b border-border z-[100]"
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
@@ -416,6 +465,31 @@ export function PatientDashboard({ user, onLogout }: PatientDashboardProps) {
           </Card>
         </motion.div>
       </div>
+<<<<<<< HEAD
+=======
+
+      {/* Theme Toggle - Fixed Position */}
+      <div className="fixed bottom-4 left-4 z-50">
+        <ThemeToggle />
+      </div>
+
+      {/* Download Report Button - Fixed Position */}
+      <div className="fixed bottom-4 right-4 z-50">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <Button
+            onClick={handleDownloadMedicalReport}
+            className="shadow-lg hover:shadow-xl transition-shadow duration-300"
+          >
+            <Download className="w-4 h-4 mr-2" />
+            Download Report
+          </Button>
+        </motion.div>
+      </div>
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
     </motion.div>
   );
 }

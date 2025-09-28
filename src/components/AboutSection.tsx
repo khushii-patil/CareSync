@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 import { Quote } from "lucide-react";
 
 export function AboutSection() {
@@ -5,9 +9,19 @@ export function AboutSection() {
     <section id="about" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+<<<<<<< HEAD
           {/* Left - Image Space */}
           <div className="relative">
             <div className="w-full h-[400px] bg-muted/30 rounded-2xl shadow-lg border border-border/20"></div>
+=======
+          {/* Left - Illustration */}
+          <div className="relative">
+            <ImageWithFallback
+              src="https://images.unsplash.com/photo-1656428964836-78d54bf76231?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtZWRpY2FsJTIwdGVjaG5vbG9neSUyMGRpZ2l0YWwlMjBoZWFsdGh8ZW58MXx8fHwxNzU4MzQ5MzYxfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Medical technology and digital health"
+              className="w-full h-[400px] object-cover rounded-2xl shadow-lg"
+            />
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
             <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-2xl"></div>
           </div>
 

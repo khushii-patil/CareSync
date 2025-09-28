@@ -17,7 +17,13 @@ import {
   Stethoscope,
   Copy,
   Plus,
+<<<<<<< HEAD
   BarChart3
+=======
+  BarChart3,
+  ChevronRight,
+  Download
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 } from "lucide-react";
 import { User as UserType } from "../App";
 import { DiseaseDetail } from "./DiseaseDetail";
@@ -25,6 +31,11 @@ import { AnalyticsDashboard } from "./AnalyticsDashboard";
 import { AISuggestions } from "./AISuggestions";
 import { FHIRModal } from "./FHIRModal";
 import { PatientListSidebar } from "./PatientListSidebar";
+<<<<<<< HEAD
+=======
+import { PatientDetailModal } from "./PatientDetailModal";
+import { ThemeToggle } from "./ThemeToggle";
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 import { toast } from "sonner@2.0.3";
 
 interface Disease {
@@ -44,6 +55,16 @@ interface Patient {
   lastVisit: string;
   conditions: string[];
   status: "stable" | "critical" | "improving";
+<<<<<<< HEAD
+=======
+  email?: string;
+  phone?: string;
+  address?: string;
+  emergencyContact?: string;
+  bloodType?: string;
+  allergies?: string[];
+  medications?: string[];
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 }
 
 interface DoctorDashboardProps {
@@ -108,7 +129,18 @@ const mockPatients: Patient[] = [
     age: 45,
     lastVisit: "2024-09-15",
     conditions: ["Hypertension", "Type 2 Diabetes"],
+<<<<<<< HEAD
     status: "stable"
+=======
+    status: "stable",
+    email: "raj.patel@email.com",
+    phone: "+91 98765 43210",
+    address: "123 MG Road, Mumbai, Maharashtra 400001",
+    emergencyContact: "Priya Patel - +91 98765 43211",
+    bloodType: "B+",
+    allergies: ["Penicillin"],
+    medications: ["Metformin", "Lisinopril"]
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   },
   {
     id: "2", 
@@ -116,7 +148,18 @@ const mockPatients: Patient[] = [
     age: 32,
     lastVisit: "2024-09-18",
     conditions: ["Migraine", "Anxiety"],
+<<<<<<< HEAD
     status: "improving"
+=======
+    status: "improving",
+    email: "priya.sharma@email.com",
+    phone: "+91 98765 43212",
+    address: "456 Park Street, Delhi, Delhi 110001",
+    emergencyContact: "Amit Sharma - +91 98765 43213",
+    bloodType: "A+",
+    allergies: ["Sulfa drugs"],
+    medications: ["Sumatriptan", "Sertraline"]
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   },
   {
     id: "3",
@@ -124,7 +167,18 @@ const mockPatients: Patient[] = [
     age: 28,
     lastVisit: "2024-09-20",
     conditions: ["Asthma"],
+<<<<<<< HEAD
     status: "critical"
+=======
+    status: "critical",
+    email: "amit.kumar@email.com",
+    phone: "+91 98765 43214",
+    address: "789 Brigade Road, Bangalore, Karnataka 560025",
+    emergencyContact: "Sunita Kumar - +91 98765 43215",
+    bloodType: "O+",
+    allergies: ["Dust", "Pollen"],
+    medications: ["Albuterol", "Fluticasone"]
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   },
   {
     id: "4",
@@ -132,7 +186,18 @@ const mockPatients: Patient[] = [
     age: 38,
     lastVisit: "2024-09-12",
     conditions: ["GERD", "Hypertension"],
+<<<<<<< HEAD
     status: "stable"
+=======
+    status: "stable",
+    email: "sneha.gupta@email.com",
+    phone: "+91 98765 43216",
+    address: "321 Civil Lines, Pune, Maharashtra 411001",
+    emergencyContact: "Rajesh Gupta - +91 98765 43217",
+    bloodType: "AB+",
+    allergies: [],
+    medications: ["Omeprazole", "Amlodipine"]
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   }
 ];
 
@@ -190,6 +255,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
   const [selectedFHIRDisease, setSelectedFHIRDisease] = useState<Disease | null>(null);
   const [patientListItems, setPatientListItems] = useState<any[]>([]);
   const [showPatientList, setShowPatientList] = useState(false);
+<<<<<<< HEAD
+=======
+  const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
+  const [showPatientDetail, setShowPatientDetail] = useState(false);
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 
   // Get time-based greeting
   const getGreeting = () => {
@@ -288,6 +358,53 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
     setShowFHIRModal(true);
   };
 
+<<<<<<< HEAD
+=======
+  const handleDiseaseCardClick = (disease: Disease) => {
+    setSelectedDisease(disease);
+  };
+
+  const handlePatientClick = (patient: Patient) => {
+    setSelectedPatient(patient);
+    setShowPatientDetail(true);
+  };
+
+  const handleUpdatePatient = (updatedPatient: Patient) => {
+    // In a real app, this would update the patient in the database
+    setSelectedPatient(updatedPatient);
+    toast.success("Patient information updated successfully!");
+  };
+
+  const handleDownloadMedicalReport = (patient: Patient) => {
+    // Generate comprehensive medical report
+    const reportData = {
+      patient: patient,
+      generatedDate: new Date().toISOString(),
+      generatedBy: `Dr. ${user.firstName}`,
+      summary: {
+        totalConditions: patient.conditions.length,
+        currentStatus: patient.status,
+        lastVisit: patient.lastVisit
+      },
+      namasteCompliance: true,
+      fhirCompliant: true
+    };
+
+    const blob = new Blob([JSON.stringify(reportData, null, 2)], {
+      type: 'application/json'
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `medical-report-${patient.name.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+    toast.success("Medical report downloaded successfully!");
+  };
+
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   if (selectedDisease) {
     return (
       <AnimatePresence mode="wait">
@@ -391,7 +508,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
               { icon: Activity, color: "var(--light-blue)", label: "Stable Patients", value: mockPatients.filter(p => p.status === "stable").length }
             ].map((stat, index) => (
               <motion.div
+<<<<<<< HEAD
                 key={`${stat.label}-${index}`}
+=======
+                key={`dashboard-stat-${index}-${stat.label.replace(/\s+/g, '-')}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                 variants={itemVariants}
                 whileHover="hover"
                 custom={index}
@@ -490,7 +611,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                   <AnimatePresence mode="wait">
                     <TabsContent value="diseases" className="mt-6">
                       <motion.div 
+<<<<<<< HEAD
                         key={`diseases-content-${searchTerm}`}
+=======
+                        key={`diseases-tab-content-${searchTerm}-${activeTab}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -500,7 +625,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                         <AnimatePresence>
                           {filteredDiseases.map((disease, index) => (
                             <motion.div
+<<<<<<< HEAD
                               key={`disease-${disease.id}`}
+=======
+                              key={`disease-card-${disease.id}-${index}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                               variants={itemVariants}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -509,6 +638,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                               whileHover="hover"
                             >
                               <motion.div variants={cardHoverVariants}>
+<<<<<<< HEAD
                                 <div className="p-4 bg-accent/50 rounded-lg border border-border hover:border-ring hover:shadow-md transition-all duration-300">
                                   <div className="flex flex-col gap-3">
                                     <div className="flex items-center justify-between">
@@ -520,6 +650,24 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                       >
                                         {disease.name}
                                       </motion.h3>
+=======
+                                <div 
+                                  className="p-4 bg-accent/50 rounded-lg border border-border hover:border-ring hover:shadow-md transition-all duration-300 cursor-pointer group"
+                                  onClick={() => handleDiseaseCardClick(disease)}
+                                >
+                                  <div className="flex flex-col gap-3">
+                                    <div className="flex items-center justify-between">
+                                      <motion.div className="flex items-center gap-3">
+                                        <motion.h3 
+                                          className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors duration-300"
+                                          whileHover={{ color: "var(--primary)" }}
+                                          transition={{ duration: 0.2 }}
+                                        >
+                                          {disease.name}
+                                        </motion.h3>
+                                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
+                                      </motion.div>
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                       <div className="flex items-center gap-2">
                                         <motion.div
                                           whileHover={{ scale: 1.1 }}
@@ -542,7 +690,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                         { label: "AYUSH", code: disease.ayushCode }
                                       ].map((item, idx) => (
                                         <motion.div
+<<<<<<< HEAD
                                           key={`${disease.id}-${item.label}-${idx}`}
+=======
+                                          key={`disease-code-${disease.id}-${item.label}-${idx}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                           className="flex items-center justify-between p-2 bg-muted/50 rounded"
                                           variants={itemVariants}
                                           whileHover={{ x: 5 }}
@@ -639,7 +791,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
 
                     <TabsContent value="patients" className="mt-6">
                       <motion.div 
+<<<<<<< HEAD
                         key={`patients-content-${searchTerm}`}
+=======
+                        key={`patients-tab-content-${searchTerm}-${activeTab}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -649,7 +805,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                         <AnimatePresence>
                           {filteredPatients.map((patient, index) => (
                             <motion.div
+<<<<<<< HEAD
                               key={`patient-${patient.id}`}
+=======
+                              key={`patient-card-${patient.id}-${index}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                               variants={itemVariants}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -669,6 +829,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                         >
                                           {patient.name}
                                         </motion.h3>
+<<<<<<< HEAD
                                         <Badge className={getStatusColor(patient.status)}>
                                           {patient.status}
                                         </Badge>
@@ -693,6 +854,36 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                       <Button variant="default" size="sm">
                                         <Activity className="w-3 h-3 mr-1" />
                                         View Records
+=======
+                                        <Badge className={getStatusColor(patient.status)}>{patient.status}</Badge>
+                                      </div>
+                                      <div className="text-sm text-muted-foreground space-y-1">
+                                        <p>Age: {patient.age} • Last Visit: {patient.lastVisit}</p>
+                                        <p>Conditions: {patient.conditions.join(", ")}</p>
+                                      </div>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                      <Button 
+                                        variant="outline" 
+                                        size="sm"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handleDownloadMedicalReport(patient);
+                                        }}
+                                      >
+                                        <Download className="w-3 h-3 mr-1" />
+                                        Download
+                                      </Button>
+                                      <Button 
+                                        variant="default" 
+                                        size="sm"
+                                        onClick={(e) => {
+                                          e.stopPropagation();
+                                          handlePatientClick(patient);
+                                        }}
+                                      >
+                                        View Details
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                       </Button>
                                     </div>
                                   </div>
@@ -717,7 +908,11 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
 
                     <TabsContent value="analytics" className="mt-6">
                       <motion.div 
+<<<<<<< HEAD
                         key={`analytics-content-${activeTab}`}
+=======
+                        key={`analytics-tab-content-${activeTab}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -733,16 +928,45 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
             </Card>
           </motion.div>
         </div>
+<<<<<<< HEAD
+=======
+
+        {/* Theme Toggle - Fixed Position */}
+        <div className="fixed bottom-4 left-4 z-50">
+          <ThemeToggle />
+        </div>
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       </motion.div>
 
       {/* FHIR Modal */}
       {showFHIRModal && selectedFHIRDisease && (
         <FHIRModal
+<<<<<<< HEAD
+=======
+          isOpen={showFHIRModal}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
           disease={selectedFHIRDisease}
           onClose={() => setShowFHIRModal(false)}
         />
       )}
 
+<<<<<<< HEAD
+=======
+      {/* Patient Detail Modal */}
+      {showPatientDetail && selectedPatient && (
+        <PatientDetailModal
+          isOpen={showPatientDetail}
+          patient={selectedPatient}
+          onClose={() => {
+            setShowPatientDetail(false);
+            setSelectedPatient(null);
+          }}
+          onUpdate={handleUpdatePatient}
+          userType="doctor"
+        />
+      )}
+
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       {/* Patient List Sidebar */}
       <PatientListSidebar
         isOpen={showPatientList}

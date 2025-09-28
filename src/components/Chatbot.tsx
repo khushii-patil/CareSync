@@ -171,7 +171,11 @@ export function Chatbot() {
     <>
       {/* Floating Chat Button */}
       <motion.div 
+<<<<<<< HEAD
         className="fixed bottom-6 right-6 z-50"
+=======
+        className="fixed bottom-6 right-6 z-[90]"
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
         initial={{ scale: 0, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         transition={{ delay: 1.2, type: "spring", stiffness: 200 }}
@@ -221,7 +225,11 @@ export function Chatbot() {
       <AnimatePresence>
         {isOpen && (
           <motion.div
+<<<<<<< HEAD
             className="fixed bottom-24 right-6 z-40 w-80 sm:w-96"
+=======
+            className="fixed bottom-24 right-6 z-[85] w-80 sm:w-96"
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
             variants={chatVariants}
             initial="hidden"
             animate="visible"

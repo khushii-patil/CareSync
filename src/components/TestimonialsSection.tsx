@@ -2,6 +2,10 @@ import { Card, CardContent } from "./ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { Quote, Star } from "lucide-react";
+<<<<<<< HEAD
+=======
+import { ImageWithFallback } from "./figma/ImageWithFallback";
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
 
 export function TestimonialsSection() {
   const testimonials = [
@@ -9,6 +13,10 @@ export function TestimonialsSection() {
       name: "Dr. Priya Sharma",
       title: "Senior Ayurveda Physician",
       organization: "All India Institute of Ayurveda",
+<<<<<<< HEAD
+=======
+      image: "https://images.unsplash.com/photo-1581842343131-e75c90429bea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHN0cmFkaXRpb25hbCUyMG1lZGljaW5lJTIwcHJhY3RpdGlvbmVyJTIwYXl1cnZlZGF8ZW58MXx8fHwxNzU4MzQ5MzYyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       quote: "This platform has revolutionized how we document and share traditional medicine practices. The seamless integration with modern EMR systems helps us bridge the gap between ancient wisdom and contemporary healthcare.",
       rating: 5,
       category: "Clinical Practice"
@@ -17,6 +25,10 @@ export function TestimonialsSection() {
       name: "Rajesh Kumar",
       title: "EMR Integration Specialist",
       organization: "Apollo Hospitals",
+<<<<<<< HEAD
+=======
+      image: "",
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       quote: "The FHIR compliance and dual coding capabilities have made it incredibly easy to integrate traditional medicine data into our existing systems. The API documentation is excellent and support is outstanding.",
       rating: 5,
       category: "Technical Integration"
@@ -25,6 +37,10 @@ export function TestimonialsSection() {
       name: "Dr. Meera Nair",
       title: "Health Policy Researcher",
       organization: "Ministry of Ayush",
+<<<<<<< HEAD
+=======
+      image: "",
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       quote: "The analytics dashboard provides invaluable insights for policy-making. We can now track traditional medicine usage patterns and outcomes at a national level, enabling evidence-based decision making.",
       rating: 5,
       category: "Policy & Analytics"
@@ -33,6 +49,10 @@ export function TestimonialsSection() {
       name: "Amit Patel",
       title: "Chief Technology Officer",
       organization: "HealthTech Solutions",
+<<<<<<< HEAD
+=======
+      image: "",
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
       quote: "Implementation was surprisingly smooth. The comprehensive SDK and excellent documentation helped our team integrate the NAMASTE API within weeks. The security features are robust and ABHA integration is flawless.",
       rating: 5,
       category: "Implementation"
@@ -91,9 +111,23 @@ export function TestimonialsSection() {
                 
                 <div className="flex items-center gap-4">
                   <Avatar className="w-12 h-12">
+<<<<<<< HEAD
                     <AvatarFallback className="bg-primary text-primary-foreground">
                       {testimonial.name.split(' ').map(n => n[0]).join('')}
                     </AvatarFallback>
+=======
+                    {testimonial.image ? (
+                      <ImageWithFallback
+                        src={testimonial.image}
+                        alt={testimonial.name}
+                        className="w-full h-full object-cover"
+                      />
+                    ) : (
+                      <AvatarFallback className="bg-primary text-primary-foreground">
+                        {testimonial.name.split(' ').map(n => n[0]).join('')}
+                      </AvatarFallback>
+                    )}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                   </Avatar>
                   <div className="flex-1">
                     <div className="font-semibold text-foreground dark:text-white">{testimonial.name}</div>

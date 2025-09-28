@@ -218,7 +218,36 @@ const diseaseInfo: Record<string, any> = {
       "Reduced quality of life",
       "Asthma development",
       "Secondary infections"
+<<<<<<< HEAD
     ]
+=======
+    ],
+    insurance: {
+      hasInsurance: true,
+      claimEligibility: "Medium",
+      estimatedCost: "₹25,000 - ₹80,000 annually",
+      coverageDetails: [
+        "Allergy testing and diagnosis",
+        "Prescription antihistamines and nasal sprays",
+        "Specialist consultations (ENT, Allergist)",
+        "Allergy immunotherapy treatments",
+        "Air purifier and environmental control devices",
+        "Emergency treatment for severe reactions"
+      ],
+      claimProcess: [
+        "Obtain pre-authorization for allergy immunotherapy",
+        "Submit NAMASTE code NAM-SAR-001 for documentation",
+        "Include allergy test reports for claim verification",
+        "Maintain prescription and treatment receipts",
+        "Use ABHA number for streamlined processing"
+      ],
+      recommendedPolicies: [
+        "HDFC ERGO Health Suraksha - ₹8,500/year",
+        "Bajaj Allianz Health Guard - ₹9,200/year",
+        "New India Assurance Mediclaim - ₹7,800/year"
+      ]
+    }
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   },
   "Migraine without Aura": {
     causes: [
@@ -263,7 +292,38 @@ const diseaseInfo: Record<string, any> = {
       "Depression and anxiety",
       "Sleep disorders",
       "Reduced productivity"
+<<<<<<< HEAD
     ]
+=======
+    ],
+    insurance: {
+      hasInsurance: true,
+      claimEligibility: "High",
+      estimatedCost: "₹1,20,000 - ₹4,50,000 annually",
+      coverageDetails: [
+        "Neurological consultations and specialist care",
+        "MRI and CT scans for diagnosis",
+        "Prescription medications (Triptans, preventive drugs)",
+        "Pain management therapy sessions",
+        "Botox injections for chronic migraine",
+        "Emergency room visits for severe episodes",
+        "Alternative therapies (acupuncture, physiotherapy)"
+      ],
+      claimProcess: [
+        "Get pre-authorization for specialized treatments",
+        "Submit NAMASTE code NAM-MIG-001 for documentation",
+        "Include neurological assessment reports",
+        "Maintain headache diary and medication logs",
+        "Use ABHA number for faster claim processing",
+        "Submit treatment receipts within claim period"
+      ],
+      recommendedPolicies: [
+        "Star Health Comprehensive Plus - ₹16,500/year",
+        "HDFC ERGO Health Suraksha Gold - ₹19,200/year",
+        "Bajaj Allianz Critical Illness - ₹14,800/year"
+      ]
+    }
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
   }
 };
 
@@ -413,7 +473,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
               { icon: Heart, color: "var(--primary-green)", label: "AYUSH Code", code: disease.ayushCode }
             ].map((item, index) => (
               <motion.div
+<<<<<<< HEAD
                 key={item.label}
+=======
+                key={`code-info-${item.label}`}
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                 variants={itemVariants}
                 whileHover="hover"
                 custom={index}
@@ -535,7 +599,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             >
                               {info.causes.map((cause: string, index: number) => (
                                 <motion.li 
+<<<<<<< HEAD
                                   key={index} 
+=======
+                                  key={`modern-cause-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                   className="flex items-start gap-3"
                                   variants={itemVariants}
                                   whileHover={{ x: 5 }}
@@ -567,7 +635,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             >
                               {info.ayurvedicCauses.map((cause: string, index: number) => (
                                 <motion.li 
+<<<<<<< HEAD
                                   key={index} 
+=======
+                                  key={`ayurvedic-cause-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                   className="flex items-start gap-3"
                                   variants={itemVariants}
                                   whileHover={{ x: 5 }}
@@ -609,7 +681,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             >
                               {info.modernCures.map((cure: string, index: number) => (
                                 <motion.div 
+<<<<<<< HEAD
                                   key={index} 
+=======
+                                  key={`modern-cure-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                   className="flex items-start gap-3 p-3 bg-accent/50 rounded-lg border border-border hover:border-primary/40 transition-all duration-300"
                                   variants={itemVariants}
                                   whileHover={{ scale: 1.02, x: 5 }}
@@ -651,7 +727,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             >
                               {info.ayurvedicCures.map((cure: string, index: number) => (
                                 <motion.div 
+<<<<<<< HEAD
                                   key={index} 
+=======
+                                  key={`ayurvedic-cure-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                   className="flex items-start gap-3 p-3 bg-accent/50 rounded-lg border border-border hover:border-[#70805D]/40 transition-all duration-300"
                                   variants={itemVariants}
                                   whileHover={{ scale: 1.02, x: 5 }}
@@ -693,7 +773,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             >
                               {info.complications.map((complication: string, index: number) => (
                                 <motion.div 
+<<<<<<< HEAD
                                   key={index} 
+=======
+                                  key={`complication-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                   className="flex items-start gap-3 p-3 bg-white/60 dark:bg-red-950/20 rounded-lg border border-red-200 dark:border-red-800 hover:border-red-300 dark:hover:border-red-700 transition-all duration-300"
                                   variants={itemVariants}
                                   whileHover={{ scale: 1.02, x: 5 }}
@@ -781,7 +865,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                                 >
                                   {info.insurance.coverageDetails.map((detail: string, index: number) => (
                                     <motion.div 
+<<<<<<< HEAD
                                       key={index} 
+=======
+                                      key={`coverage-detail-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                       className="flex items-start gap-3 p-3 bg-green-50 dark:bg-green-950/30 rounded-lg border border-green-200 dark:border-green-800 hover:border-green-400 dark:hover:border-green-600 transition-all duration-300"
                                       variants={itemVariants}
                                       whileHover={{ scale: 1.02, x: 5 }}
@@ -808,7 +896,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                                 >
                                   {info.insurance.claimProcess.map((step: string, index: number) => (
                                     <motion.div 
+<<<<<<< HEAD
                                       key={index} 
+=======
+                                      key={`claim-step-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                       className="flex items-start gap-3 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 transition-all duration-300"
                                       variants={itemVariants}
                                       whileHover={{ scale: 1.02, x: 5 }}
@@ -837,7 +929,11 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                                 >
                                   {info.insurance.recommendedPolicies.map((policy: string, index: number) => (
                                     <motion.div 
+<<<<<<< HEAD
                                       key={index} 
+=======
+                                      key={`policy-${index}`} 
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                                       className="flex items-start gap-3 p-4 bg-gradient-to-r from-primary/10 to-[#70805D]/10 rounded-lg border border-primary/20 hover:border-primary/40 transition-all duration-300"
                                       variants={itemVariants}
                                       whileHover={{ scale: 1.02, x: 5 }}
@@ -898,6 +994,7 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                         transition={{ type: "spring", stiffness: 400 }}
                       >
                         <p className="text-sm text-muted-foreground mb-1">Severity Level</p>
+<<<<<<< HEAD
                         <motion.div
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400 }}
@@ -910,6 +1007,15 @@ export function DiseaseDetail({ disease, onBack, userType }: DiseaseDetailProps)
                             {disease.severity.charAt(0).toUpperCase() + disease.severity.slice(1)}
                           </Badge>
                         </motion.div>
+=======
+                        <Badge className={`
+                          ${disease.severity === "high" ? "bg-red-500" : 
+                            disease.severity === "medium" ? "bg-yellow-500" : 
+                            "bg-green-500"} text-white
+                        `}>
+                          {disease.severity?.charAt(0).toUpperCase() + disease.severity?.slice(1)}
+                        </Badge>
+>>>>>>> 5263ed51f8a398de7028c57f8a41b707bb6f3bb1
                       </motion.div>
                     )}
                   </div>
