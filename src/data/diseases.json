@@ -1,0 +1,302 @@
+[
+  {
+    "namaste_code": "NAM001",
+    "namaste_term": "Prameha (Diabetes Mellitus)",
+    "icd11_code": "5A11",
+    "icd11_term": "Type 2 Diabetes Mellitus"
+  },
+  {
+    "namaste_code": "NAM002",
+    "namaste_term": "Tamaka Shwasa (Bronchial Asthma)",
+    "icd11_code": "CA23",
+    "icd11_term": "Asthma"
+  },
+  {
+    "namaste_code": "NAM003",
+    "namaste_term": "Sandhivata (Osteoarthritis)",
+    "icd11_code": "FA01",
+    "icd11_term": "Osteoarthritis of knee"
+  },
+  {
+    "namaste_code": "NAM004",
+    "namaste_term": "Amavata (Rheumatoid Arthritis)",
+    "icd11_code": "FA20",
+    "icd11_term": "Rheumatoid Arthritis"
+  },
+  {
+    "namaste_code": "NAM005",
+    "namaste_term": "Amlapitta (Acid Peptic Disorder)",
+    "icd11_code": "DB90",
+    "icd11_term": "Gastritis"
+  },
+  {
+    "namaste_code": "NAM006",
+    "namaste_term": "Arsha (Hemorrhoids)",
+    "icd11_code": "MB60",
+    "icd11_term": "Hemorrhoids"
+  },
+  {
+    "namaste_code": "NAM007",
+    "namaste_term": "Bhagandara (Fistula-in-ano)",
+    "icd11_code": "MB65",
+    "icd11_term": "Anal fistula"
+  },
+  {
+    "namaste_code": "NAM008",
+    "namaste_term": "Madhumeha (Diabetes Mellitus Type 1)",
+    "icd11_code": "5A10",
+    "icd11_term": "Type 1 Diabetes Mellitus"
+  },
+  {
+    "namaste_code": "NAM009",
+    "namaste_term": "Shleepada (Filariasis)",
+    "icd11_code": "1F27",
+    "icd11_term": "Lymphatic filariasis"
+  },
+  {
+    "namaste_code": "NAM010",
+    "namaste_term": "Kustha (Psoriasis)",
+    "icd11_code": "EA80",
+    "icd11_term": "Psoriasis vulgaris"
+  },
+  {
+    "namaste_code": "NAM011",
+    "namaste_term": "Pandu (Iron Deficiency Anemia)",
+    "icd11_code": "3A00",
+    "icd11_term": "Iron deficiency anemia"
+  },
+  {
+    "namaste_code": "NAM012",
+    "namaste_term": "Shotha (Edema)",
+    "icd11_code": "MG25",
+    "icd11_term": "Localized edema"
+  },
+  {
+    "namaste_code": "NAM013",
+    "namaste_term": "Rajayakshma (Pulmonary Tuberculosis)",
+    "icd11_code": "1B10",
+    "icd11_term": "Pulmonary tuberculosis"
+  },
+  {
+    "namaste_code": "NAM014",
+    "namaste_term": "Shwitra (Vitiligo)",
+    "icd11_code": "EA82",
+    "icd11_term": "Vitiligo"
+  },
+  {
+    "namaste_code": "NAM015",
+    "namaste_term": "Unmada (Psychosis)",
+    "icd11_code": "6A20",
+    "icd11_term": "Schizophrenia"
+  },
+  {
+    "namaste_code": "NAM016",
+    "namaste_term": "Apasmara (Epilepsy)",
+    "icd11_code": "8A60",
+    "icd11_term": "Epilepsy"
+  },
+  {
+    "namaste_code": "NAM017",
+    "namaste_term": "Atisara (Diarrhea)",
+    "icd11_code": "1A10",
+    "icd11_term": "Acute infectious diarrhea"
+  },
+  {
+    "namaste_code": "NAM018",
+    "namaste_term": "Grahani (Irritable Bowel Syndrome)",
+    "icd11_code": "DD73",
+    "icd11_term": "Irritable bowel syndrome"
+  },
+  {
+    "namaste_code": "NAM019",
+    "namaste_term": "Hridroga (Ischemic Heart Disease)",
+    "icd11_code": "BA40",
+    "icd11_term": "Ischemic heart disease"
+  },
+  {
+    "namaste_code": "NAM020",
+    "namaste_term": "Mutrakrichha (Urinary Tract Infection)",
+    "icd11_code": "GB60",
+    "icd11_term": "Urinary tract infection"
+  },
+  {
+    "namaste_code": "NAM021",
+    "namaste_term": "Ashmari (Kidney Stones)",
+    "icd11_code": "GB20",
+    "icd11_term": "Urolithiasis"
+  },
+  {
+    "namaste_code": "NAM022",
+    "namaste_term": "Kasa (Cough)",
+    "icd11_code": "MD11",
+    "icd11_term": "Chronic cough"
+  },
+  {
+    "namaste_code": "NAM023",
+    "namaste_term": "Kamala (Jaundice)",
+    "icd11_code": "DB95",
+    "icd11_term": "Jaundice"
+  },
+  {
+    "namaste_code": "NAM024",
+    "namaste_term": "Charma Roga (Eczema)",
+    "icd11_code": "EA90",
+    "icd11_term": "Atopic dermatitis"
+  },
+  {
+    "namaste_code": "NAM025",
+    "namaste_term": "Nidranasha (Insomnia)",
+    "icd11_code": "7A80",
+    "icd11_term": "Insomnia disorder"
+  },
+  {
+    "namaste_code": "NAM026",
+    "namaste_term": "Chronic Shwasa (COPD)",
+    "icd11_code": "CA22",
+    "icd11_term": "Chronic obstructive pulmonary disease"
+  },
+  {
+    "namaste_code": "NAM027",
+    "namaste_term": "Pakshaghata (Stroke)",
+    "icd11_code": "8B11",
+    "icd11_term": "Ischemic stroke"
+  },
+  {
+    "namaste_code": "NAM028",
+    "namaste_term": "Netra Roga (Conjunctivitis)",
+    "icd11_code": "9A60",
+    "icd11_term": "Acute conjunctivitis"
+  },
+  {
+    "namaste_code": "NAM029",
+    "namaste_term": "Karna Roga (Otitis Media)",
+    "icd11_code": "AB20",
+    "icd11_term": "Otitis media"
+  },
+  {
+    "namaste_code": "NAM030",
+    "namaste_term": "Danta Roga (Dental Caries)",
+    "icd11_code": "DA01",
+    "icd11_term": "Dental caries"
+  },
+  {
+    "namaste_code": "NAM031",
+    "namaste_term": "Mukhapaka (Stomatitis)",
+    "icd11_code": "DA40",
+    "icd11_term": "Stomatitis"
+  },
+  {
+    "namaste_code": "NAM032",
+    "namaste_term": "Yonivyapad (Pelvic Inflammatory Disease)",
+    "icd11_code": "GB50",
+    "icd11_term": "Pelvic inflammatory disease"
+  },
+  {
+    "namaste_code": "NAM033",
+    "namaste_term": "Stree Roga (Menstrual Disorders)",
+    "icd11_code": "GB30",
+    "icd11_term": "Menstrual cycle disorders"
+  },
+  {
+    "namaste_code": "NAM034",
+    "namaste_term": "Garbhashaya Arbuda (Uterine Fibroids)",
+    "icd11_code": "XA2M",
+    "icd11_term": "Leiomyoma of uterus"
+  },
+  {
+    "namaste_code": "NAM035",
+    "namaste_term": "Pradara (Leucorrhea)",
+    "icd11_code": "GB70",
+    "icd11_term": "Abnormal vaginal discharge"
+  },
+  {
+    "namaste_code": "NAM036",
+    "namaste_term": "Stanya Dushti (Mastitis)",
+    "icd11_code": "GB80",
+    "icd11_term": "Mastitis"
+  },
+  {
+    "namaste_code": "NAM037",
+    "namaste_term": "Garbhasrava (Spontaneous Abortion)",
+    "icd11_code": "GB10",
+    "icd11_term": "Spontaneous abortion"
+  },
+  {
+    "namaste_code": "NAM038",
+    "namaste_term": "Bal Roga (Malnutrition in Children)",
+    "icd11_code": "5B50",
+    "icd11_term": "Protein-energy malnutrition"
+  },
+  {
+    "namaste_code": "NAM039",
+    "namaste_term": "Vatarakta (Gout)",
+    "icd11_code": "FA11",
+    "icd11_term": "Gout"
+  },
+  {
+    "namaste_code": "NAM040",
+    "namaste_term": "Kaphaja Kasa (Chronic Bronchitis)",
+    "icd11_code": "CA21",
+    "icd11_term": "Chronic bronchitis"
+  },
+  {
+    "namaste_code": "NAM041",
+    "namaste_term": "Udar Roga (Cirrhosis)",
+    "icd11_code": "DB94",
+    "icd11_term": "Liver cirrhosis"
+  },
+  {
+    "namaste_code": "NAM042",
+    "namaste_term": "Yakrit Roga (Fatty Liver Disease)",
+    "icd11_code": "DB95.1",
+    "icd11_term": "Non-alcoholic fatty liver disease"
+  },
+  {
+    "namaste_code": "NAM043",
+    "namaste_term": "Kushtha (Leprosy)",
+    "icd11_code": "1B70",
+    "icd11_term": "Hansen’s disease"
+  },
+  {
+    "namaste_code": "NAM044",
+    "namaste_term": "Jwara (Fever of Infectious Origin)",
+    "icd11_code": "1A00",
+    "icd11_term": "Fever of infectious disease"
+  },
+  {
+    "namaste_code": "NAM045",
+    "namaste_term": "Pliha Vriddhi (Splenomegaly)",
+    "icd11_code": "XA25",
+    "icd11_term": "Enlarged spleen"
+  },
+  {
+    "namaste_code": "NAM046",
+    "namaste_term": "Visha Roga (Poisoning)",
+    "icd11_code": "NE61",
+    "icd11_term": "Toxic effects of substances"
+  },
+  {
+    "namaste_code": "NAM047",
+    "namaste_term": "Bhrama (Vertigo)",
+    "icd11_code": "AB30",
+    "icd11_term": "Vertiginous syndromes"
+  },
+  {
+    "namaste_code": "NAM048",
+    "namaste_term": "Karna Nada (Tinnitus)",
+    "icd11_code": "AB31",
+    "icd11_term": "Tinnitus"
+  },
+  {
+    "namaste_code": "NAM049",
+    "namaste_term": "Pratishyay (Allergic Rhinitis)",
+    "icd11_code": "CA01",
+    "icd11_term": "Allergic rhinitis"
+  },
+  {
+    "namaste_code": "NAM050",
+    "namaste_term": "Shirashoola (Migraine)",
+    "icd11_code": "8A80",
+    "icd11_term": "Migraine"
+  }
+]

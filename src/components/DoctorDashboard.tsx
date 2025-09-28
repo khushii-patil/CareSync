@@ -1,3 +1,4 @@
+import diseaseData from "../data/diseases.json";
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Button } from "./ui/button";
@@ -17,9 +18,7 @@ import {
   Stethoscope,
   Copy,
   Plus,
-  BarChart3,
-  ChevronRight,
-  Download
+  BarChart3
 } from "lucide-react";
 import { User as UserType } from "../App";
 import { DiseaseDetail } from "./DiseaseDetail";
@@ -27,8 +26,6 @@ import { AnalyticsDashboard } from "./AnalyticsDashboard";
 import { AISuggestions } from "./AISuggestions";
 import { FHIRModal } from "./FHIRModal";
 import { PatientListSidebar } from "./PatientListSidebar";
-import { PatientDetailModal } from "./PatientDetailModal";
-import { ThemeToggle } from "./ThemeToggle";
 import { toast } from "sonner@2.0.3";
 
 interface Disease {
@@ -48,13 +45,6 @@ interface Patient {
   lastVisit: string;
   conditions: string[];
   status: "stable" | "critical" | "improving";
-  email?: string;
-  phone?: string;
-  address?: string;
-  emergencyContact?: string;
-  bloodType?: string;
-  allergies?: string[];
-  medications?: string[];
 }
 
 interface DoctorDashboardProps {
@@ -63,53 +53,17 @@ interface DoctorDashboardProps {
 }
 
 // Mock disease database
-const mockDiseases: Disease[] = [
-  {
-    id: "1",
-    name: "Hypertension",
-    icdCode: "I10",
-    namasteCode: "NAM-HYP-001",
-    ayushCode: "AYU-RAKTA-CHAPA",
-    description: "Essential hypertension",
-    prevalence: "High - affects 25% of adults"
-  },
-  {
-    id: "2",
-    name: "Type 2 Diabetes Mellitus", 
-    icdCode: "E11",
-    namasteCode: "NAM-DM2-001",
-    ayushCode: "AYU-MADHUMEHA",
-    description: "Non-insulin-dependent diabetes mellitus",
-    prevalence: "Common - affects 8% of population"
-  },
-  {
-    id: "3",
-    name: "Migraine without Aura",
-    icdCode: "G43.0", 
-    namasteCode: "NAM-MIG-001",
-    ayushCode: "AYU-ARDHAVABHEDAKA",
-    description: "Recurrent headache disorder",
-    prevalence: "Moderate - affects 12% of adults"
-  },
-  {
-    id: "4",
-    name: "Asthma",
-    icdCode: "J45",
-    namasteCode: "NAM-AST-001",
-    ayushCode: "AYU-TAMAKA-SHWASA",
-    description: "Chronic respiratory condition",
-    prevalence: "Common - affects 8% of children, 7% adults"
-  },
-  {
-    id: "5",
-    name: "Gastroesophageal Reflux Disease",
-    icdCode: "K21.9",
-    namasteCode: "NAM-GRD-001", 
-    ayushCode: "AYU-AMLAPITTA",
-    description: "Chronic acid reflux condition",
-    prevalence: "Very Common - affects 20% of adults"
-  }
-];
+// Convert JSON format into your Disease interface format
+const mockDiseases: Disease[] = diseaseData.map((item, index) => ({
+  id: String(index + 1),
+  name: item.icd11_term,
+  icdCode: item.icd11_code,
+  namasteCode: item.namaste_code,
+  ayushCode: item.namaste_term, // temporary mapping (since JSON doesn't have ayushCode)
+  description: item.namaste_term,
+  prevalence: "Not specified" // default, since your dataset doesn’t provide it
+}));
+
 
 // Mock patient data
 const mockPatients: Patient[] = [
@@ -119,14 +73,7 @@ const mockPatients: Patient[] = [
     age: 45,
     lastVisit: "2024-09-15",
     conditions: ["Hypertension", "Type 2 Diabetes"],
-    status: "stable",
-    email: "raj.patel@email.com",
-    phone: "+91 98765 43210",
-    address: "123 MG Road, Mumbai, Maharashtra 400001",
-    emergencyContact: "Priya Patel - +91 98765 43211",
-    bloodType: "B+",
-    allergies: ["Penicillin"],
-    medications: ["Metformin", "Lisinopril"]
+    status: "stable"
   },
   {
     id: "2", 
@@ -134,14 +81,7 @@ const mockPatients: Patient[] = [
     age: 32,
     lastVisit: "2024-09-18",
     conditions: ["Migraine", "Anxiety"],
-    status: "improving",
-    email: "priya.sharma@email.com",
-    phone: "+91 98765 43212",
-    address: "456 Park Street, Delhi, Delhi 110001",
-    emergencyContact: "Amit Sharma - +91 98765 43213",
-    bloodType: "A+",
-    allergies: ["Sulfa drugs"],
-    medications: ["Sumatriptan", "Sertraline"]
+    status: "improving"
   },
   {
     id: "3",
@@ -149,14 +89,7 @@ const mockPatients: Patient[] = [
     age: 28,
     lastVisit: "2024-09-20",
     conditions: ["Asthma"],
-    status: "critical",
-    email: "amit.kumar@email.com",
-    phone: "+91 98765 43214",
-    address: "789 Brigade Road, Bangalore, Karnataka 560025",
-    emergencyContact: "Sunita Kumar - +91 98765 43215",
-    bloodType: "O+",
-    allergies: ["Dust", "Pollen"],
-    medications: ["Albuterol", "Fluticasone"]
+    status: "critical"
   },
   {
     id: "4",
@@ -164,14 +97,7 @@ const mockPatients: Patient[] = [
     age: 38,
     lastVisit: "2024-09-12",
     conditions: ["GERD", "Hypertension"],
-    status: "stable",
-    email: "sneha.gupta@email.com",
-    phone: "+91 98765 43216",
-    address: "321 Civil Lines, Pune, Maharashtra 411001",
-    emergencyContact: "Rajesh Gupta - +91 98765 43217",
-    bloodType: "AB+",
-    allergies: [],
-    medications: ["Omeprazole", "Amlodipine"]
+    status: "stable"
   }
 ];
 
@@ -229,8 +155,6 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
   const [selectedFHIRDisease, setSelectedFHIRDisease] = useState<Disease | null>(null);
   const [patientListItems, setPatientListItems] = useState<any[]>([]);
   const [showPatientList, setShowPatientList] = useState(false);
-  const [selectedPatient, setSelectedPatient] = useState<Patient | null>(null);
-  const [showPatientDetail, setShowPatientDetail] = useState(false);
 
   // Get time-based greeting
   const getGreeting = () => {
@@ -327,50 +251,6 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
   const handleViewFHIR = (disease: Disease) => {
     setSelectedFHIRDisease(disease);
     setShowFHIRModal(true);
-  };
-
-  const handleDiseaseCardClick = (disease: Disease) => {
-    setSelectedDisease(disease);
-  };
-
-  const handlePatientClick = (patient: Patient) => {
-    setSelectedPatient(patient);
-    setShowPatientDetail(true);
-  };
-
-  const handleUpdatePatient = (updatedPatient: Patient) => {
-    // In a real app, this would update the patient in the database
-    setSelectedPatient(updatedPatient);
-    toast.success("Patient information updated successfully!");
-  };
-
-  const handleDownloadMedicalReport = (patient: Patient) => {
-    // Generate comprehensive medical report
-    const reportData = {
-      patient: patient,
-      generatedDate: new Date().toISOString(),
-      generatedBy: `Dr. ${user.firstName}`,
-      summary: {
-        totalConditions: patient.conditions.length,
-        currentStatus: patient.status,
-        lastVisit: patient.lastVisit
-      },
-      namasteCompliance: true,
-      fhirCompliant: true
-    };
-
-    const blob = new Blob([JSON.stringify(reportData, null, 2)], {
-      type: 'application/json'
-    });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `medical-report-${patient.name.replace(/\s+/g, '-')}-${new Date().toISOString().split('T')[0]}.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-    toast.success("Medical report downloaded successfully!");
   };
 
   if (selectedDisease) {
@@ -476,7 +356,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
               { icon: Activity, color: "var(--light-blue)", label: "Stable Patients", value: mockPatients.filter(p => p.status === "stable").length }
             ].map((stat, index) => (
               <motion.div
-                key={`dashboard-stat-${index}-${stat.label.replace(/\s+/g, '-')}`}
+                key={`${stat.label}-${index}`}
                 variants={itemVariants}
                 whileHover="hover"
                 custom={index}
@@ -575,7 +455,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                   <AnimatePresence mode="wait">
                     <TabsContent value="diseases" className="mt-6">
                       <motion.div 
-                        key={`diseases-tab-content-${searchTerm}-${activeTab}`}
+                        key={`diseases-content-${searchTerm}`}
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -585,7 +465,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                         <AnimatePresence>
                           {filteredDiseases.map((disease, index) => (
                             <motion.div
-                              key={`disease-card-${disease.id}-${index}`}
+                              key={`disease-${disease.id}`}
                               variants={itemVariants}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -594,22 +474,17 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                               whileHover="hover"
                             >
                               <motion.div variants={cardHoverVariants}>
-                                <div 
-                                  className="p-4 bg-accent/50 rounded-lg border border-border hover:border-ring hover:shadow-md transition-all duration-300 cursor-pointer group"
-                                  onClick={() => handleDiseaseCardClick(disease)}
-                                >
+                                <div className="p-4 bg-accent/50 rounded-lg border border-border hover:border-ring hover:shadow-md transition-all duration-300">
                                   <div className="flex flex-col gap-3">
                                     <div className="flex items-center justify-between">
-                                      <motion.div className="flex items-center gap-3">
-                                        <motion.h3 
-                                          className="font-semibold text-foreground text-lg group-hover:text-primary transition-colors duration-300"
-                                          whileHover={{ color: "var(--primary)" }}
-                                          transition={{ duration: 0.2 }}
-                                        >
-                                          {disease.name}
-                                        </motion.h3>
-                                        <ChevronRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors duration-300" />
-                                      </motion.div>
+                                      <motion.h3 
+                                        className="font-semibold text-foreground text-lg cursor-pointer"
+                                        whileHover={{ color: "var(--primary)" }}
+                                        transition={{ duration: 0.2 }}
+                                        onClick={() => setSelectedDisease(disease)}
+                                      >
+                                        {disease.name}
+                                      </motion.h3>
                                       <div className="flex items-center gap-2">
                                         <motion.div
                                           whileHover={{ scale: 1.1 }}
@@ -632,7 +507,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                         { label: "AYUSH", code: disease.ayushCode }
                                       ].map((item, idx) => (
                                         <motion.div
-                                          key={`disease-code-${disease.id}-${item.label}-${idx}`}
+                                          key={`${disease.id}-${item.label}-${idx}`}
                                           className="flex items-center justify-between p-2 bg-muted/50 rounded"
                                           variants={itemVariants}
                                           whileHover={{ x: 5 }}
@@ -729,7 +604,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
 
                     <TabsContent value="patients" className="mt-6">
                       <motion.div 
-                        key={`patients-tab-content-${searchTerm}-${activeTab}`}
+                        key={`patients-content-${searchTerm}`}
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -739,7 +614,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                         <AnimatePresence>
                           {filteredPatients.map((patient, index) => (
                             <motion.div
-                              key={`patient-card-${patient.id}-${index}`}
+                              key={`patient-${patient.id}`}
                               variants={itemVariants}
                               initial={{ opacity: 0, y: 20 }}
                               animate={{ opacity: 1, y: 0 }}
@@ -759,34 +634,30 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
                                         >
                                           {patient.name}
                                         </motion.h3>
-                                        <Badge className={getStatusColor(patient.status)}>{patient.status}</Badge>
+                                        <Badge className={getStatusColor(patient.status)}>
+                                          {patient.status}
+                                        </Badge>
                                       </div>
-                                      <div className="text-sm text-muted-foreground space-y-1">
-                                        <p>Age: {patient.age} • Last Visit: {patient.lastVisit}</p>
-                                        <p>Conditions: {patient.conditions.join(", ")}</p>
+                                      <div className="flex items-center gap-4 text-sm text-muted-foreground mb-2">
+                                        <span>Age: {patient.age}</span>
+                                        <span>Last Visit: {patient.lastVisit}</span>
+                                      </div>
+                                      <div className="flex flex-wrap gap-1">
+                                        {patient.conditions.map((condition, idx) => (
+                                          <Badge key={`${patient.id}-condition-${idx}`} variant="outline" className="text-xs">
+                                            {condition}
+                                          </Badge>
+                                        ))}
                                       </div>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                      <Button 
-                                        variant="outline" 
-                                        size="sm"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          handleDownloadMedicalReport(patient);
-                                        }}
-                                      >
-                                        <Download className="w-3 h-3 mr-1" />
-                                        Download
+                                      <Button variant="outline" size="sm">
+                                        <Calendar className="w-3 h-3 mr-1" />
+                                        Schedule
                                       </Button>
-                                      <Button 
-                                        variant="default" 
-                                        size="sm"
-                                        onClick={(e) => {
-                                          e.stopPropagation();
-                                          handlePatientClick(patient);
-                                        }}
-                                      >
-                                        View Details
+                                      <Button variant="default" size="sm">
+                                        <Activity className="w-3 h-3 mr-1" />
+                                        View Records
                                       </Button>
                                     </div>
                                   </div>
@@ -811,7 +682,7 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
 
                     <TabsContent value="analytics" className="mt-6">
                       <motion.div 
-                        key={`analytics-tab-content-${activeTab}`}
+                        key={`analytics-content-${activeTab}`}
                         variants={tabVariants}
                         initial="hidden"
                         animate="visible"
@@ -827,35 +698,16 @@ export function DoctorDashboard({ user, onLogout }: DoctorDashboardProps) {
             </Card>
           </motion.div>
         </div>
-
-        {/* Theme Toggle - Fixed Position */}
-        <div className="fixed bottom-4 left-4 z-50">
-          <ThemeToggle />
-        </div>
       </motion.div>
+{/* FHIR Modal */}
+{selectedFHIRDisease && (
+  <FHIRModal
+    isOpen={showFHIRModal}   // <-- pass it here
+    disease={selectedFHIRDisease}
+    onClose={() => setShowFHIRModal(false)}
+  />
+)}
 
-      {/* FHIR Modal */}
-      {showFHIRModal && selectedFHIRDisease && (
-        <FHIRModal
-          isOpen={showFHIRModal}
-          disease={selectedFHIRDisease}
-          onClose={() => setShowFHIRModal(false)}
-        />
-      )}
-
-      {/* Patient Detail Modal */}
-      {showPatientDetail && selectedPatient && (
-        <PatientDetailModal
-          isOpen={showPatientDetail}
-          patient={selectedPatient}
-          onClose={() => {
-            setShowPatientDetail(false);
-            setSelectedPatient(null);
-          }}
-          onUpdate={handleUpdatePatient}
-          userType="doctor"
-        />
-      )}
 
       {/* Patient List Sidebar */}
       <PatientListSidebar
